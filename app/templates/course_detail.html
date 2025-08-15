@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+	<a href="/" class="back">← Back to Dashboard</a>
+	<h1>{{ course.title }}</h1>
+	<p class="muted">{{ course.description }}</p>
+
+	<ul class="lesson-list">
+		{% for lesson in lessons %}
+			{% set progress = progress_map.get(lesson.id) %}
+			<li class="lesson {{ 'done' if progress and progress.completed else '' }}">
+				<div class="lesson-main">
+					<h3>{{ '%02d' % lesson.order_index }}. {{ lesson.title }}</h3>
+					<p class="muted">{{ lesson.duration_minutes }} min</p>
+				</div>
+				<form action="/lesson/{{ lesson.id }}/toggle" method="post">
+					<button type="submit" class="btn">
+						{{ 'Mark Incomplete' if progress and progress.completed else 'Mark Complete' }}
+					</button>
+				</form>
+			</li>
+		{% else %}
+			<li>No lessons yet.</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

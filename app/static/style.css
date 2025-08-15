@@ -1,0 +1,18 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:#0f172a;background:#f8fafc}a{color:inherit;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px}
+.site-header,.site-footer{background:#0f172a;color:#e2e8f0}
+.brand{font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+.card{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:16px;display:block;transition:transform .1s ease,box-shadow .1s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(2,6,23,.08)}
+.progress{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-top:8px}
+.progress .bar{height:100%;background:#22c55e}
+.progress-text{font-size:12px;color:#475569;margin-top:6px}
+.muted{color:#475569}
+.lesson-list{list-style:none;padding:0;margin:16px 0;display:flex;flex-direction:column;gap:8px}
+.lesson{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:space-between}
+.lesson.done{border-color:#22c55e;background:#f0fdf4}
+.lesson-main{display:flex;gap:12px;align-items:baseline}
+.btn{appearance:none;border:1px solid #0f172a;background:#0f172a;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn:hover{background:#111827}
+.back{display:inline-block;margin-top:8px}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>Dashboard</h1>
+	<section class="cards">
+		{% for course in courses %}
+			{% set completed, total = progress_by_course.get(course.id, (0, 0)) %}
+			<a href="/course/{{ course.id }}" class="card">
+				<h2>{{ course.title }}</h2>
+				<p class="muted">{{ course.description }}</p>
+				<div class="progress">
+					{% set pct = (completed / total * 100) if total else 0 %}
+					<div class="bar" style="width: {{ '%.0f' % pct }}%"></div>
+				</div>
+				<p class="progress-text">{{ completed }}/{{ total }} lessons completed</p>
+			</a>
+		{% else %}
+			<p>No courses yet.</p>
+		{% endfor %}
+	</section>
+{% endblock %}
